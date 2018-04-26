@@ -1,7 +1,10 @@
-﻿// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
-// Instructions for doing this in Visual Studio:
-// Tools -> Nuget Package Manager -> Package Manager Console
-// Install-Package Microsoft.AspNet.WebApi.Client
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using AzureML.Frontend.Web.Models;
 
 using System;
 using System.Collections.Generic;
@@ -13,13 +16,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace CallRequestResponseService
+
+namespace AzureML.Frontend.Web.Controllers
 {
-    class Program
+    public class HomeController : Controller
     {
-        static void Main(string[] args)
+        public IActionResult Index()
         {
-            InvokeRequestResponseService().Wait();
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+
+
+
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         static async Task InvokeRequestResponseService()
