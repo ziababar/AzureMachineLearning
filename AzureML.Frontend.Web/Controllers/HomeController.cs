@@ -37,8 +37,8 @@ namespace AzureML.Frontend.Web.Controllers
         {
             ViewData["Message"] = "Your contact page.";
 
-
-
+       
+            InvokeRequestResponseService().Wait();
 
             return View();
         }
@@ -163,5 +163,7 @@ namespace AzureML.Frontend.Web.Controllers
                 }
             }
         }
+
+
     }
 }
